@@ -116,7 +116,7 @@ const LoggedHeader = () => {
         if (win && !win.closed) {
           win.close();
         }
-      }, 500);
+      }, 1000);
     });
 
     // 4. Redirect to login page
