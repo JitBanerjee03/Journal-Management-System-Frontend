@@ -71,11 +71,11 @@ const Login = () => {
       const data = await response.json();
       const roles = [];
       
-      if (data.eic_id) roles.push({ id: 'eic', name: 'Editor in Chief', url: `http://localhost:5177/?token=${encodeURIComponent(token)}` });
-      if (data.area_editor_id) roles.push({ id: 'area_editor', name: 'Area Editor', url: `http://localhost:5176/?token=${encodeURIComponent(token)}` });
-      if (data.associate_editor_id) roles.push({ id: 'associate_editor', name: 'Associate Editor', url: `http://localhost:5175/?token=${encodeURIComponent(token)}` });
-      if (data.reviewer_id) roles.push({ id: 'reviewer', name: 'Reviewer', url: `http://localhost:5174/?token=${encodeURIComponent(token)}` });
-      if (data.id) roles.push({ id: 'author', name: 'Author', url: `http://localhost:5173/?token=${encodeURIComponent(token)}` });
+      if (data.eic_id) roles.push({ id: 'eic', name: 'Editor in Chief', url: `https://computer-jagat-chief-editor.vercel.app/?token=${encodeURIComponent(token)}` });
+      if (data.area_editor_id) roles.push({ id: 'area_editor', name: 'Area Editor', url: `https://computer-jagat-area-editor.vercel.app/?token=${encodeURIComponent(token)}` });
+      if (data.associate_editor_id) roles.push({ id: 'associate_editor', name: 'Associate Editor', url: `https://computer-jagat-associate-editor.vercel.app/?token=${encodeURIComponent(token)}` });
+      if (data.reviewer_id) roles.push({ id: 'reviewer', name: 'Reviewer', url: `https://computer-jagat-reviewer.vercel.app/?token=${encodeURIComponent(token)}` });
+      if (data.id) roles.push({ id: 'author', name: 'Author', url: `https://computer-jagat-author.vercel.app/?token=${encodeURIComponent(token)}` });
 
       if (roles.length === 0) {
         throw new Error('No valid roles found for this user');
@@ -130,11 +130,11 @@ const Login = () => {
       console.log('Token stored in localStorage');
       
       const roles = [];
-      if (data.eic_id) roles.push({ id: 'eic', name: 'Editor in Chief', url: `http://localhost:5177/?token=${encodeURIComponent(data.token)}` });
-      if (data.area_editor_id) roles.push({ id: 'area_editor', name: 'Area Editor', url: `http://localhost:5176/?token=${encodeURIComponent(data.token)}` });
-      if (data.associate_editor_id) roles.push({ id: 'associate_editor', name: 'Associate Editor', url: `http://localhost:5175/?token=${encodeURIComponent(data.token)}` });
-      if (data.reviewer_id) roles.push({ id: 'reviewer', name: 'Reviewer', url: `http://localhost:5174/?token=${encodeURIComponent(data.token)}` });
-      if (data.id) roles.push({ id: 'author', name: 'Author', url: `http://localhost:5173/?token=${encodeURIComponent(data.token)}` });
+      if (data.eic_id) roles.push({ id: 'eic', name: 'Editor in Chief', url: `https://computer-jagat-chief-editor.vercel.app/?token=${encodeURIComponent(data.token)}` });
+      if (data.area_editor_id) roles.push({ id: 'area_editor', name: 'Area Editor', url: `https://computer-jagat-area-editor.vercel.app/?token=${encodeURIComponent(data.token)}` });
+      if (data.associate_editor_id) roles.push({ id: 'associate_editor', name: 'Associate Editor', url: `https://computer-jagat-associate-editor.vercel.app/?token=${encodeURIComponent(data.token)}` });
+      if (data.reviewer_id) roles.push({ id: 'reviewer', name: 'Reviewer', url: `https://computer-jagat-reviewer.vercel.app/?token=${encodeURIComponent(data.token)}` });
+      if (data.id) roles.push({ id: 'author', name: 'Author', url: `https://computer-jagat-author.vercel.app/?token=${encodeURIComponent(data.token)}` });
 
       if (roles.length === 0) {
         throw new Error('No valid roles found for this user');
@@ -164,11 +164,11 @@ const Login = () => {
     localStorage.removeItem('jwtToken'); // Clear current domain token (5178)
 
     const portals = [
-      'http://localhost:5173',
-      'http://localhost:5174',
-      'http://localhost:5175',
-      'http://localhost:5176',
-      'http://localhost:5177'
+      'https://computer-jagat-author.vercel.app',
+      'https://computer-jagat-reviewer.vercel.app',
+      'https://computer-jagat-associate-editor.vercel.app',
+      'https://computer-jagat-area-editor.vercel.app',
+      'https://computer-jagat-chief-editor.vercel.app'
     ];
 
     // Inject hidden iframes to trigger logout on each portal
@@ -181,7 +181,7 @@ const Login = () => {
     setToken(null);
     // Allow iframes to execute logout code, then redirect
     setTimeout(() => {
-      window.location.href = 'http://localhost:5178/login';
+      window.location.href = 'https://journal-management-system-frontend.vercel.app/login';
     }, 1500);
   };
 

@@ -33,28 +33,28 @@ const UnLoggedHeader = () => {
     { 
       name: 'Reviewer', 
       icon: <FaUserEdit />, 
-      link: 'http://localhost:5174/',
+      link: 'https://computer-jagat-reviewer.vercel.app/',
       description: 'Review submitted manuscripts',
       color: '#2ecc71'
     },
     { 
       name: 'Associate Editor', 
       icon: <FaUserTie />, 
-      link: 'http://localhost:5175/',
+      link: 'https://computer-jagat-associate-editor.vercel.app/',
       description: 'Manage the review process',
       color: '#9b59b6'
     },
     { 
       name: 'Area Editor', 
       icon: <FaUserShield />, 
-      link: 'http://localhost:5176/',
+      link: 'https://computer-jagat-area-editor.vercel.app/',
       description: 'Oversee specific subject areas',
       color: '#e67e22'
     },
     { 
       name: 'Editor in Chief', 
       icon: <FaUserCog />, 
-      link: 'http://localhost:5177/',
+      link: 'https://computer-jagat-chief-editor.vercel.app/',
       description: 'Manage the entire editorial process',
       color: '#e74c3c'
     }
