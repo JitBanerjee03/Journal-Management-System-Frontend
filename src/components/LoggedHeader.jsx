@@ -27,7 +27,7 @@ const LoggedHeader = () => {
     { 
       name: 'Author', 
       icon: <FaUser />, 
-      link: 'http://localhost:5173/',
+      link: 'https://computer-jagat-author.vercel.app/',
       description: 'Submit and track your manuscripts',
       color: '#3498db'
     },
@@ -73,7 +73,7 @@ const LoggedHeader = () => {
     localStorage.removeItem('jwtToken'); // Clear current domain token (5178)
 
     const portals = [
-      'http://localhost:5173',
+      'https://computer-jagat-author.vercel.app',
       'http://localhost:5174',
       'http://localhost:5175',
       'http://localhost:5176',
