@@ -90,7 +90,7 @@ const LoggedHeader = () => {
 
     // Allow iframes to execute logout code, then redirect
     setTimeout(() => {
-      window.location.href = 'http://localhost:5178/login';
+      window.location.href = 'https://journal-management-system-frontend.vercel.app/login';
     }, 1500);
   };
 

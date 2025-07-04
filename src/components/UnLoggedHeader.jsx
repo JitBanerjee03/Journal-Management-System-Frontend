@@ -26,7 +26,7 @@ const UnLoggedHeader = () => {
     { 
       name: 'Author', 
       icon: <FaUser />, 
-      link: 'http://localhost:5173/',
+      link: 'https://computer-jagat-author.vercel.app/',
       description: 'Submit and track your manuscripts',
       color: '#3498db'
     },
