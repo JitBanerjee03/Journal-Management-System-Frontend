@@ -69,7 +69,7 @@ const LoggedHeader = () => {
     setActiveDropdown(activeDropdown === roleName ? null : roleName);
   };
 
-  const handleLogout = async() => {
+  /*const handleLogout = async() => {
     localStorage.removeItem('jwtToken'); // Clear current domain token (5178)
 
     const portals = [
@@ -92,11 +92,13 @@ const LoggedHeader = () => {
     setTimeout(() => {
       window.location.href = 'https://journal-management-system-frontend.vercel.app/login';
     }, 1500);
-  };
+  };*/
 
-  /*const handleLogout = async () => {
-    localStorage.removeItem('jwtToken'); // Clear local token
-
+  const handleLogout = () => {
+    // 1. Clear current domain's token immediately
+    localStorage.removeItem('jwtToken');
+    
+    // 2. List all your portal domains
     const portals = [
       'https://computer-jagat-author.vercel.app',
       'https://computer-jagat-reviewer.vercel.app',
@@ -105,29 +107,34 @@ const LoggedHeader = () => {
       'https://computer-jagat-chief-editor.vercel.app'
     ];
 
-    // Create a map of iframes
-    const iframeMap = [];
-
-    portals.forEach((portal) => {
-      const iframe = document.createElement('iframe');
-      iframe.src = portal;
-      iframe.style.display = 'none';
-      document.body.appendChild(iframe);
-      iframeMap.push(iframe);
+    // 3. Use window.open() instead of iframes (better cross-domain support)
+    portals.forEach(domain => {
+      const win = window.open(`${domain}?logout=true&timestamp=${Date.now()}`, '_blank', 'noopener,noreferrer');
+      
+      // Close the window after a short delay
+      setTimeout(() => {
+        if (win && !win.closed) {
+          win.close();
+        }
+      }, 1000);
     });
 
-    // Wait for iframes to load and send logout message
-    setTimeout(() => {
-      iframeMap.forEach((iframe) => {
-        iframe.contentWindow.postMessage({ type: 'LOGOUT' }, '*');
-      });
-    }, 1000);
+    // 4. Redirect to login page
+    window.location.href = 'https://journal-management-system-frontend.vercel.app/login';
+  };
 
-    // Redirect to login after some delay
-    setTimeout(() => {
-      window.location.href = 'https://journal-management-system-frontend.vercel.app/login';
-    }, 2000);
-  };*/
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setActiveDropdown(null);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   return (
     <header className="journal-header">
