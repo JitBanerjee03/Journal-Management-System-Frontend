@@ -69,7 +69,7 @@ const LoggedHeader = () => {
     setActiveDropdown(activeDropdown === roleName ? null : roleName);
   };
 
-  /*const handleLogout = async() => {
+  const handleLogout = async() => {
     localStorage.removeItem('jwtToken'); // Clear current domain token (5178)
 
     const portals = [
@@ -92,9 +92,9 @@ const LoggedHeader = () => {
     setTimeout(() => {
       window.location.href = 'https://journal-management-system-frontend.vercel.app/login';
     }, 1500);
-  };*/
+  };
 
-  const handleLogout = async () => {
+  /*const handleLogout = async () => {
     localStorage.removeItem('jwtToken'); // Clear local token
 
     const portals = [
@@ -127,8 +127,7 @@ const LoggedHeader = () => {
     setTimeout(() => {
       window.location.href = 'https://journal-management-system-frontend.vercel.app/login';
     }, 2000);
-  };
-
+  };*/
 
   return (
     <header className="journal-header">
